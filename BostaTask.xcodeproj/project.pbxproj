@@ -27,6 +27,7 @@
 		04E8C65229979E1F00B4001E /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E8C65129979E1F00B4001E /* NetworkProvider.swift */; };
 		04E8C6572997B00D00B4001E /* BaseWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E8C6542997B00D00B4001E /* BaseWireFrame.swift */; };
 		04E8C6592997B00D00B4001E /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E8C6562997B00D00B4001E /* BaseViewModel.swift */; };
+		04E8C6602997C15A00B4001E /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E8C65F2997C15A00B4001E /* ProfileVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		04E8C65129979E1F00B4001E /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
 		04E8C6542997B00D00B4001E /* BaseWireFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWireFrame.swift; sourceTree = "<group>"; };
 		04E8C6562997B00D00B4001E /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		04E8C65F2997C15A00B4001E /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +86,8 @@
 		04E8C5FA29978BAC00B4001E /* BostaTask */ = {
 			isa = PBXGroup;
 			children = (
-				04E8C6532997AFA800B4001E /* BaseFiles */,
+				04E8C65B2997B9EB00B4001E /* Extensions */,
+				04E8C65A2997B98600B4001E /* Common */,
 				04E8C64C2997975300B4001E /* Utitlities */,
 				04E8C63A2997956000B4001E /* NetworkLayer */,
 				04E8C62D2997949100B4001E /* Modules */,
@@ -118,6 +121,7 @@
 		04E8C62E2997949B00B4001E /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				04E8C65E2997BFCD00B4001E /* ViewModel */,
 				04E8C630299794AB00B4001E /* View */,
 			);
 			path = Profile;
@@ -166,13 +170,36 @@
 			path = Utitlities;
 			sourceTree = "<group>";
 		};
-		04E8C6532997AFA800B4001E /* BaseFiles */ = {
+		04E8C6532997AFA800B4001E /* BaseClasses */ = {
 			isa = PBXGroup;
 			children = (
 				04E8C6562997B00D00B4001E /* BaseViewModel.swift */,
 				04E8C6542997B00D00B4001E /* BaseWireFrame.swift */,
 			);
-			path = BaseFiles;
+			path = BaseClasses;
+			sourceTree = "<group>";
+		};
+		04E8C65A2997B98600B4001E /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				04E8C6532997AFA800B4001E /* BaseClasses */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		04E8C65B2997B9EB00B4001E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		04E8C65E2997BFCD00B4001E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				04E8C65F2997C15A00B4001E /* ProfileVM.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,6 +292,7 @@
 				04E8C6572997B00D00B4001E /* BaseWireFrame.swift in Sources */,
 				04E8C60029978BAC00B4001E /* ViewController.swift in Sources */,
 				04E8C65029979C3C00B4001E /* UserServices.swift in Sources */,
+				04E8C6602997C15A00B4001E /* ProfileVM.swift in Sources */,
 				04E8C5FC29978BAC00B4001E /* AppDelegate.swift in Sources */,
 				04E8C6592997B00D00B4001E /* BaseViewModel.swift in Sources */,
 				04E8C646299795D300B4001E /* NetworkConstant.swift in Sources */,
