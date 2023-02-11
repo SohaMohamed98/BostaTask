@@ -9,7 +9,7 @@ import UIKit
 import SDWebImage
 class PhotoCell: UICollectionViewCell {
 
-    @IBOutlet private weak var uiPhotoImage: UIImageView!
+    @IBOutlet weak var uiPhotoImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
     }

@@ -49,7 +49,7 @@ class ProfileVC: BaseWireFrame<ProfileVM> {
         dataSource.titleForHeaderInSection = { dataSource, index in
             return dataSource.sectionModels[index].header
         }
-        self.viewModel.dataSourcSubject.bind(to: uiAlbumCollectionView.rx.items(dataSource: dataSource))
+        self.viewModel.dataSourcSubject.bind(to: uiAlbumCollectionView.rx.items(dataSource: dataSource)).disposed(by: self.disposeBag)
     }
     
     private func selectedAlbum(){

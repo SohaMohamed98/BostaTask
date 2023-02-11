@@ -9,9 +9,12 @@ import UIKit
 import SDWebImage
 import RxSwift
 import RxCocoa
+import ImageSlideshow
+import ImageSlideshowSDWebImage
+
 class AlbumVC: BaseWireFrame<AlbumViewModel> {
     @IBOutlet weak var uiNavigationView: NavigationView!
-    
+    var slideshowTransitioningDelegate: ZoomAnimatedTransitioningDelegate? = nil
     @IBOutlet weak var uiPhotoSearchBar: UISearchBar!
     @IBOutlet weak var uiPhotoCollectionView: UICollectionView!{
         didSet{
@@ -31,6 +34,7 @@ class AlbumVC: BaseWireFrame<AlbumViewModel> {
         bindNavigationView()
         bindPhotos()
         setupSearch()
+        openPhoto()
     }
     
     private func bindNavigationView(){
@@ -54,6 +58,25 @@ class AlbumVC: BaseWireFrame<AlbumViewModel> {
         Observable.combineLatest(uiPhotoSearchBar.rx.searchButtonClicked, uiPhotoSearchBar.rx.cancelButtonClicked).subscribe(onNext: {[weak self] _, _ in
             guard let self = self else {return}
             self.view.endEditing(true)
+        }).disposed(by: self.disposeBag)
+    }
+    
+    private func openPhoto(){
+        Observable.zip(self.uiPhotoCollectionView.rx.itemSelected, self.uiPhotoCollectionView.rx.modelSelected(PhotoElement.self)).subscribe(onNext:{[weak self] index, model in
+            guard let self = self else{return}
+            let fullScreenController = FullScreenSlideshowViewController()
+            fullScreenController.inputs = [SDWebImageSource(url: URL(string: model.url ?? "")!, placeholder: UIImage(named: "TestImageLarge"))]
+            fullScreenController.initialPage = index.row
+            let cell = self.uiPhotoCollectionView.cellForItem(at: index) as! PhotoCell
+            self.slideshowTransitioningDelegate = ZoomAnimatedTransitioningDelegate(imageView: cell.uiPhotoImage, slideshowController: fullScreenController)
+            fullScreenController.modalPresentationStyle = .custom
+            fullScreenController.transitioningDelegate = self.slideshowTransitioningDelegate
+            fullScreenController.slideshow.currentPageChanged = { [weak self] page in
+                if  let cell = self?.uiPhotoCollectionView.cellForItem(at: index) as? PhotoCell, let imageView = cell.uiPhotoImage {
+                    self?.slideshowTransitioningDelegate?.referenceImageView = imageView
+                }
+            }
+            self.present(fullScreenController, animated: true, completion: nil)
         }).disposed(by: self.disposeBag)
     }
 }

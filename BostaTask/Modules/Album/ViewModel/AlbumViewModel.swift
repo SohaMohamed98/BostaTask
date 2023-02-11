@@ -32,6 +32,7 @@ class AlbumViewModel: BaseViewModel {
             self?.allPhotosSubject.accept(self?.searchedPhotoElements ?? [])
         }).disposed(by: self.disposeBag)
         
+        
     }
     private func getAllPhotos(){
         self.isLoading.accept(true)

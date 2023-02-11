@@ -42,6 +42,10 @@
 		04E8C6802998416600B4001E /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 04E8C67F2998416600B4001E /* SDWebImage */; };
 		04E8C684299841AA00B4001E /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E8C682299841AA00B4001E /* PhotoCell.swift */; };
 		04E8C685299841AA00B4001E /* PhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E8C683299841AA00B4001E /* PhotoCell.xib */; };
+		04E8C688299855F200B4001E /* ImageSlideshow in Frameworks */ = {isa = PBXBuildFile; productRef = 04E8C687299855F200B4001E /* ImageSlideshow */; };
+		04E8C68A299855F200B4001E /* ImageSlideshow/Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 04E8C689299855F200B4001E /* ImageSlideshow/Alamofire */; };
+		04E8C68C299855F200B4001E /* ImageSlideshow/Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 04E8C68B299855F200B4001E /* ImageSlideshow/Kingfisher */; };
+		04E8C68E299855F200B4001E /* ImageSlideshow/SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 04E8C68D299855F200B4001E /* ImageSlideshow/SDWebImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,12 +85,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				04E8C6682997ECF900B4001E /* Differentiator in Frameworks */,
+				04E8C688299855F200B4001E /* ImageSlideshow in Frameworks */,
 				04E8C61C29978D1C00B4001E /* RxMoya in Frameworks */,
 				04E8C61529978C0200B4001E /* RxSwift in Frameworks */,
 				04E8C61329978C0200B4001E /* RxRelay in Frameworks */,
+				04E8C68A299855F200B4001E /* ImageSlideshow/Alamofire in Frameworks */,
 				04E8C61829978D1C00B4001E /* Moya in Frameworks */,
+				04E8C68C299855F200B4001E /* ImageSlideshow/Kingfisher in Frameworks */,
 				04E8C66A2997ECF900B4001E /* RxDataSources in Frameworks */,
 				04E8C6802998416600B4001E /* SDWebImage in Frameworks */,
+				04E8C68E299855F200B4001E /* ImageSlideshow/SDWebImage in Frameworks */,
 				04E8C61A29978D1C00B4001E /* ReactiveMoya in Frameworks */,
 				04E8C61129978C0200B4001E /* RxCocoa in Frameworks */,
 			);
@@ -315,6 +323,10 @@
 				04E8C6672997ECF900B4001E /* Differentiator */,
 				04E8C6692997ECF900B4001E /* RxDataSources */,
 				04E8C67F2998416600B4001E /* SDWebImage */,
+				04E8C687299855F200B4001E /* ImageSlideshow */,
+				04E8C689299855F200B4001E /* ImageSlideshow/Alamofire */,
+				04E8C68B299855F200B4001E /* ImageSlideshow/Kingfisher */,
+				04E8C68D299855F200B4001E /* ImageSlideshow/SDWebImage */,
 			);
 			productName = BostaTask;
 			productReference = 04E8C5F829978BAC00B4001E /* BostaTask.app */;
@@ -349,6 +361,7 @@
 				04E8C61629978D1C00B4001E /* XCRemoteSwiftPackageReference "Moya" */,
 				04E8C6662997ECF900B4001E /* XCRemoteSwiftPackageReference "RxDataSources" */,
 				04E8C67E2998416600B4001E /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				04E8C686299855F200B4001E /* XCRemoteSwiftPackageReference "ImageSlideshow" */,
 			);
 			productRefGroup = 04E8C5F929978BAC00B4001E /* Products */;
 			projectDirPath = "";
@@ -641,6 +654,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		04E8C686299855F200B4001E /* XCRemoteSwiftPackageReference "ImageSlideshow" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/zvonicek/ImageSlideshow";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -688,6 +709,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 04E8C67E2998416600B4001E /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
+		};
+		04E8C687299855F200B4001E /* ImageSlideshow */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 04E8C686299855F200B4001E /* XCRemoteSwiftPackageReference "ImageSlideshow" */;
+			productName = ImageSlideshow;
+		};
+		04E8C689299855F200B4001E /* ImageSlideshow/Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 04E8C686299855F200B4001E /* XCRemoteSwiftPackageReference "ImageSlideshow" */;
+			productName = ImageSlideshow/Alamofire;
+		};
+		04E8C68B299855F200B4001E /* ImageSlideshow/Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 04E8C686299855F200B4001E /* XCRemoteSwiftPackageReference "ImageSlideshow" */;
+			productName = ImageSlideshow/Kingfisher;
+		};
+		04E8C68D299855F200B4001E /* ImageSlideshow/SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 04E8C686299855F200B4001E /* XCRemoteSwiftPackageReference "ImageSlideshow" */;
+			productName = ImageSlideshow/SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
