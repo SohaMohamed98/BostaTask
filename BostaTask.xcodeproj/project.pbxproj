@@ -22,6 +22,11 @@
 		04E8C635299794C500B4001E /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E8C633299794C500B4001E /* ProfileVC.xib */; };
 		04E8C638299794DA00B4001E /* AlbumVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E8C636299794DA00B4001E /* AlbumVC.swift */; };
 		04E8C639299794DA00B4001E /* AlbumVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E8C637299794DA00B4001E /* AlbumVC.xib */; };
+		04E8C646299795D300B4001E /* NetworkConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E8C640299795D300B4001E /* NetworkConstant.swift */; };
+		04E8C65029979C3C00B4001E /* UserServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E8C64F29979C3C00B4001E /* UserServices.swift */; };
+		04E8C65229979E1F00B4001E /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E8C65129979E1F00B4001E /* NetworkProvider.swift */; };
+		04E8C6572997B00D00B4001E /* BaseWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E8C6542997B00D00B4001E /* BaseWireFrame.swift */; };
+		04E8C6592997B00D00B4001E /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E8C6562997B00D00B4001E /* BaseViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +41,11 @@
 		04E8C633299794C500B4001E /* ProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileVC.xib; sourceTree = "<group>"; };
 		04E8C636299794DA00B4001E /* AlbumVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumVC.swift; sourceTree = "<group>"; };
 		04E8C637299794DA00B4001E /* AlbumVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumVC.xib; sourceTree = "<group>"; };
+		04E8C640299795D300B4001E /* NetworkConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkConstant.swift; sourceTree = "<group>"; };
+		04E8C64F29979C3C00B4001E /* UserServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServices.swift; sourceTree = "<group>"; };
+		04E8C65129979E1F00B4001E /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
+		04E8C6542997B00D00B4001E /* BaseWireFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWireFrame.swift; sourceTree = "<group>"; };
+		04E8C6562997B00D00B4001E /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +84,9 @@
 		04E8C5FA29978BAC00B4001E /* BostaTask */ = {
 			isa = PBXGroup;
 			children = (
+				04E8C6532997AFA800B4001E /* BaseFiles */,
+				04E8C64C2997975300B4001E /* Utitlities */,
+				04E8C63A2997956000B4001E /* NetworkLayer */,
 				04E8C62D2997949100B4001E /* Modules */,
 				04E8C62B2997933300B4001E /* Supporting Files */,
 				04E8C5FB29978BAC00B4001E /* AppDelegate.swift */,
@@ -134,6 +147,32 @@
 				04E8C637299794DA00B4001E /* AlbumVC.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		04E8C63A2997956000B4001E /* NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+				04E8C640299795D300B4001E /* NetworkConstant.swift */,
+				04E8C64F29979C3C00B4001E /* UserServices.swift */,
+				04E8C65129979E1F00B4001E /* NetworkProvider.swift */,
+			);
+			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
+		04E8C64C2997975300B4001E /* Utitlities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utitlities;
+			sourceTree = "<group>";
+		};
+		04E8C6532997AFA800B4001E /* BaseFiles */ = {
+			isa = PBXGroup;
+			children = (
+				04E8C6562997B00D00B4001E /* BaseViewModel.swift */,
+				04E8C6542997B00D00B4001E /* BaseWireFrame.swift */,
+			);
+			path = BaseFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,8 +261,13 @@
 			files = (
 				04E8C634299794C500B4001E /* ProfileVC.swift in Sources */,
 				04E8C638299794DA00B4001E /* AlbumVC.swift in Sources */,
+				04E8C65229979E1F00B4001E /* NetworkProvider.swift in Sources */,
+				04E8C6572997B00D00B4001E /* BaseWireFrame.swift in Sources */,
 				04E8C60029978BAC00B4001E /* ViewController.swift in Sources */,
+				04E8C65029979C3C00B4001E /* UserServices.swift in Sources */,
 				04E8C5FC29978BAC00B4001E /* AppDelegate.swift in Sources */,
+				04E8C6592997B00D00B4001E /* BaseViewModel.swift in Sources */,
+				04E8C646299795D300B4001E /* NetworkConstant.swift in Sources */,
 				04E8C5FE29978BAC00B4001E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
