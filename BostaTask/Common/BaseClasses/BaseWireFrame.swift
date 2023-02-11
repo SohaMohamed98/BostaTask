@@ -36,6 +36,7 @@ class BaseWireFrame<T: BaseViewModel>: UIViewController,UIGestureRecognizerDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.interactivePopGestureRecognizer!.delegate = self
+        self.navigationController?.navigationBar.isHidden = true
         bind(viewModel: viewModel)
         self.baseBind()
         

@@ -6,24 +6,67 @@
 //
 
 import UIKit
-
-class AlbumVC: UIViewController {
-
+import SDWebImage
+import RxSwift
+import RxCocoa
+class AlbumVC: BaseWireFrame<AlbumViewModel> {
+    @IBOutlet weak var uiNavigationView: NavigationView!
+    
+    @IBOutlet weak var uiPhotoSearchBar: UISearchBar!
+    @IBOutlet weak var uiPhotoCollectionView: UICollectionView!{
+        didSet{
+            uiPhotoCollectionView.register(UINib(nibName: "PhotoCell", bundle: nil), forCellWithReuseIdentifier: "PhotoCell")
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.uiPhotoSearchBar.text = ""
     }
-    */
+    
+    override func bind(viewModel: AlbumViewModel) {
+        bindNavigationView()
+        bindPhotos()
+        setupSearch()
+    }
+    
+    private func bindNavigationView(){
+        self.uiNavigationView.title = self.viewModel.albumElement.title ?? ""
+        self.uiNavigationView.back_Btn.rx.tap.subscribe(onNext:{[weak self] _ in
+            guard let self = self else{return}
+            self.navigationController?.popViewController(animated: true)
+        }).disposed(by: self.disposeBag)
+    }
+    
+    private func bindPhotos(){
+        self.uiPhotoCollectionView.rx.setDelegate(self).disposed(by: self.disposeBag)
+        self.viewModel.allPhotosSubject.bind(to: uiPhotoCollectionView.rx.items(cellIdentifier: "PhotoCell", cellType: PhotoCell.self)){row, item, cell in
+            cell.bindPhoto(photoModel: item)
+        }.disposed(by: self.disposeBag)
+    }
+    
+    private func setupSearch(){
+        uiPhotoSearchBar.rx.text
+            .orEmpty.distinctUntilChanged().bind(to: viewModel.searchWord).disposed(by: self.disposeBag)
+        Observable.combineLatest(uiPhotoSearchBar.rx.searchButtonClicked, uiPhotoSearchBar.rx.cancelButtonClicked).subscribe(onNext: {[weak self] _, _ in
+            guard let self = self else {return}
+            self.view.endEditing(true)
+        }).disposed(by: self.disposeBag)
+    }
+}
 
+extension AlbumVC: UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: (collectionView.frame.width-0.5)/3, height: (collectionView.frame.width-20)/2.5)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
 }

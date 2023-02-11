@@ -27,6 +27,7 @@ class ProfileVC: BaseWireFrame<ProfileVM> {
     override func bind(viewModel: ProfileVM) {
         bindHeader()
         bindAlbumDataSource()
+        selectedAlbum()
     }
     
     private func bindHeader(){
@@ -49,6 +50,13 @@ class ProfileVC: BaseWireFrame<ProfileVM> {
             return dataSource.sectionModels[index].header
         }
         self.viewModel.dataSourcSubject.bind(to: uiAlbumCollectionView.rx.items(dataSource: dataSource))
+    }
+    
+    private func selectedAlbum(){
+        self.uiAlbumCollectionView.rx.modelSelected(AlbumElement.self).subscribe(onNext:{[weak self] album in
+            guard let self = self else{return}
+            self.navigationController?.pushViewController(AlbumVC(viewModel: AlbumViewModel(album: album)), animated: true)
+        }).disposed(by: self.disposeBag)
     }
     
     

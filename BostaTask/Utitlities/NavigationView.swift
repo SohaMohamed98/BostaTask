@@ -82,7 +82,7 @@ class NavigationView: UIView {
         ])
         
         NSLayoutConstraint.activate([
-            self.title_lbl.leadingAnchor.constraint(equalTo: self.back_Btn.trailingAnchor, constant: -30),
+            self.title_lbl.leadingAnchor.constraint(equalTo: self.back_Btn.trailingAnchor, constant: 10),
             self.title_lbl.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             self.title_lbl.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0)
         ])

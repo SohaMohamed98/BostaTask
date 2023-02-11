@@ -20,12 +20,14 @@ class ProfileVM:BaseViewModel {
         self.getAllAlbums()
     }
     private func getAllUsers(){
+        self.isLoading.accept(true)
         networkProvider.performRequest(Users.self, router: .getUsers).subscribe { response in
             switch response {
             case let .success(data):
+                self.isLoading.accept(false)
                 self.firstUserSubject.accept(data.first)
             case let .failure(error):
-                print(error)
+                self.isLoading.accept(false)
                 self.showMessageObservable.onNext(("OOps", error.localizedDescription))
             }
         }
@@ -33,12 +35,14 @@ class ProfileVM:BaseViewModel {
     
     
     private func getAllAlbums(){
+        self.isLoading.accept(true)
         networkProvider.performRequest(Albums.self, router: .getAlbums(userId: 1)).subscribe { response in
             switch response {
             case let .success(data):
+                self.isLoading.accept(false)
                 self.dataSourcSubject.accept([.init(header: "My Albums", items: data)])
             case let .failure(error):
-                print(error)
+                self.isLoading.accept(false)
                 self.showMessageObservable.onNext(("OOps", error.localizedDescription))
             }
         }
